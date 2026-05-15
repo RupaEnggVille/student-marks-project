@@ -31,6 +31,7 @@ CREATE TABLE attendance (
 INSERT INTO users(email,password,role)
 VALUES(
 'admin@gmail.com',
-'$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',
+'$2y$10$wH0VJxj6R0Q7YVQ9M6l8mOcK9Q5YB6zM9WnGJ8R7zK9F5rVwQ9J2S',
 'admin'
 );
+
