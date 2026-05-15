@@ -1,0 +1,46 @@
+After login to project in EC2 in ssh  make these changes
+
+FINAL FIX STEPS (FOLLOW EXACTLY)
+🔴 STEP 1 — Generate correct password hash (IMPORTANT)
+
+Run:
+
+docker exec -it php-app php -r "echo password_hash('admin123', PASSWORD_DEFAULT);"
+
+✔ Copy the output (it must start with $2y$10$...)
+❌ Do NOT copy anything else
+
+🔴 STEP 2 — Delete old admin user
+docker exec -it mysql mysql -uroot -proot studentdb -e "DELETE FROM users WHERE email='admin@gmail.com';"
+🔴 STEP 3 — Open MySQL container
+docker exec -it mysql mysql -uroot -proot studentdb
+🔴 STEP 4 — Insert NEW admin (VERY IMPORTANT)
+
+Inside MySQL:
+
+INSERT INTO users(email,password,role)
+VALUES(
+'admin@gmail.com',
+'PASTE_HASH_HERE',
+'admin'
+);
+
+✔ Paste ONLY clean hash from Step 1
+❌ No spaces
+❌ No extra text
+❌ No commands
+
+🔴 STEP 5 — Verify data
+
+Exit MySQL and run:
+
+docker exec -it mysql mysql -uroot -proot studentdb -e "SELECT email,password FROM users;"
+
+✔ You should see only clean hash
+
+🔴 STEP 6 — LOGIN TEST
+
+Use:
+
+Email: admin@gmail.com
+Password: admin123

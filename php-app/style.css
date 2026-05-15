@@ -1,0 +1,98 @@
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #0f172a, #4c1d95, #1d4ed8);
+    color: white;
+    padding: 30px;
+}
+
+/* Headings */
+h1, h2 {
+    color: #38bdf8;
+    text-align: center;
+}
+
+/* Form styling */
+form {
+    margin-top: 20px;
+    text-align: center;
+}
+
+input {
+    padding: 10px;
+    margin: 10px;
+    width: 250px;
+    border-radius: 5px;
+    border: none;
+}
+
+button {
+    padding: 10px 20px;
+    background: #3b82f6;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #2563eb;
+}
+
+/* Links */
+a {
+    color: #facc15;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Table */
+table {
+    border-collapse: collapse;
+    width: 70%;
+    margin: 20px auto;
+    background: #1e293b;
+    color: white;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+th {
+    background: #334155;
+    padding: 12px;
+}
+
+td {
+    padding: 12px;
+    border-bottom: 1px solid #334155;
+    text-align: center;
+}
+
+tr:hover {
+    background: #1d4ed8;
+}
+
+/* Add link section */
+.add-link {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.custom-table > :not(caption) > * > * {
+    background-color: #243b55 !important;
+    color: white !important;
+    border-color: #4a6fa5 !important;
+    vertical-align: middle;
+}
+
+.custom-table thead th {
+    background-color: #6c757d !important;
+    color: white !important;
+    text-align: center;
+    border: 1px solid white !important;
+}
+.custom-table tbody tr:hover td {
+    background-color: #2f4f6f !important;
+}
