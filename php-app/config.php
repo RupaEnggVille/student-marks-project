@@ -2,7 +2,7 @@
 
 $host = "mysql";
 $user = "root";
-$password = "root";
+$password = "root123";
 $database = "studentdb";
 
 $conn = null;
