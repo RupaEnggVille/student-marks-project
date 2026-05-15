@@ -5,34 +5,59 @@ services:
   php:
     build:
       context: ./php-app
+
     container_name: php-app
+
     ports:
       - "8080:80"
+
     volumes:
       - ./php-app:/var/www/html
+
     depends_on:
       - mysql
+
+    restart: always
 
   python:
     image: python:3.11
+
     container_name: python-service
+
     working_dir: /app
+
     volumes:
       - ./python-service:/app
+
     command: bash -c "pip install -r requirements.txt && python app.py"
+
     ports:
       - "5000:5000"
+
     depends_on:
       - mysql
 
-  mysql:
-    image: mysql:8
-    container_name: mysql
     restart: always
+
+  mysql:
+    image: mysql:8.0
+
+    container_name: mysql
+
+    restart: always
+
+    command: --default-authentication-plugin=mysql_native_password
+
     environment:
-      MYSQL_ROOT_PASSWORD: root
+      MYSQL_ROOT_PASSWORD: root123
       MYSQL_DATABASE: studentdb
+
     ports:
-      - "3307:3306"
+      - "3306:3306"
+
     volumes:
-      - ./mysql/init.sql:/docker-entrypoint-initdb.d/init.sql
+      - mysql_data:/var/lib/mysql
+      - ./mysql-init:/docker-entrypoint-initdb.d
+
+volumes:
+    mysql_data:
